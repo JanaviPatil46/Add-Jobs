@@ -1,12 +1,13 @@
 import './App.css';
+// import JobTemplate from './components/JobTemplate';
 import AddJobs from './components/AddJobs';
-// import TextEditor from './components/TextEditor';
+
 
 function App() {
   return (
     <>
    <AddJobs/>
-   {/* <TextEditor/> */}
+  {/* <JobTemplate/> */}
     </>
   );
 }

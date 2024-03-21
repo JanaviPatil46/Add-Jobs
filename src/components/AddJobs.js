@@ -9,6 +9,7 @@ import { SlQuestion } from "react-icons/sl";
 
 import "./addjobs.css"
 import TextEditor from './TextEditor';
+// import { useHistory } from 'react-router-dom';
 const AddJobs = () => {
     const [startDate, setStartDate] = useState(null);
     const [dueDate, setDueDate] = useState(null);
@@ -24,9 +25,19 @@ const AddJobs = () => {
         setDueDate(date);
     };
 
+    const options = [
+       
+        { value: '4', label: 'create a job template', url: './JobTemplate.js' }
+    ];
 
+    const [selectedOption, setSelectedOption] = useState(null);
 
-
+    const handleOptionSelect = (selectedOption) => {
+        setSelectedOption(selectedOption);
+        if (selectedOption && selectedOption.url) {
+            window.location.href = selectedOption.url;
+        }
+    };
 
 
 
@@ -62,7 +73,8 @@ const AddJobs = () => {
                             <div className='add-jobs-label-container'>
                                 <label>Template</label>
                             </div>
-                            <Select className='add-jobs-select-dropdown' />
+                            <Select className='add-jobs-select-dropdown'  options={options}  onChange={handleOptionSelect}
+                value={selectedOption}/>
                         </div>
                         <div>
                             <label style={{ fontSize: '14px' }}>Name</label>
